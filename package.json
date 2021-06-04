@@ -1,7 +1,7 @@
 {
-  "name": "storybook-addon-kit",
+  "name": "storybook-addon-router-info-panel",
   "version": "0.0.0",
-  "description": "everything you need to build a Storybook addon",
+  "description": "Storybook addon to display info about current status of in-memory router in stories",
   "keywords": [
     "storybook-addons",
     "style",
@@ -9,9 +9,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/storybookjs/storybook-addon-kit"
+    "url": "https://github.com/dagerikhl/storybook-addon-router-info-panel"
   },
-  "author": "winkerVSbecks",
+  "author": "dagerikhl",
   "license": "MIT",
   "main": "dist/preset",
   "files": [
@@ -25,7 +25,7 @@
     "buildTsc": "tsc --declaration --emitDeclarationOnly --outDir ./dist",
     "build": "concurrently \"npm run buildBabel\" \"npm run buildTsc\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6007",
     "start": "concurrently \"npm run storybook -- --no-manager-cache --quiet\" \"npm run build -- --watch\"",
     "build-storybook": "build-storybook",
     "prerelease": "node check-metadata.js",
@@ -42,6 +42,7 @@
     "babel-loader": "^8.1.0",
     "chalk": "^2.4.2",
     "concurrently": "^5.3.0",
+    "prettier": "2.3.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "rimraf": "^3.0.2",
@@ -68,12 +69,14 @@
     "access": "public"
   },
   "storybook": {
-    "displayName": "Addon Kit",
+    "displayName": "Router info panel",
     "supportedFrameworks": [
-      "react",
-      "vue",
-      "angular"
+      "react"
     ],
     "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
+  },
+  "dependencies": {
+    "query-string": "7.0.0",
+    "react-router-dom": "5.2.0"
   }
 }
